@@ -1,2 +1,2 @@
 # Tippy
-A tip calculator!
+A tip calculator (for Android)!
