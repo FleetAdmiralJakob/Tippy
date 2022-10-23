@@ -1,4 +1,4 @@
-● Replace the text describing the tip (“poor”, “good”, etc) with emojis. ✅
+● Replaced the text describing the tip (“poor”, “good”, etc) with emojis. ✅
 
 ● Improve the user interface through styling and coloring, e.g. change the text color, and font, and optimize the layout for different screens. See the styling screens FAQ.
 
@@ -7,7 +7,7 @@
 ● Add the ability to round the total bill up or down, which should update the tip amount and
 percent automatically.
 
-● Add pre-defined options for service (e.g. poor, acceptable, good, excellent) which
+● Added pre-defined options for service (e.g. poor, acceptable, good, excellent) which
 automatically decide the tip percentage. ✅
 
 ● (Advanced) Show currency symbols and allow the user to change their currency.
