@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="services_array">
+        <item>Poor 😕</item>
+        <item>Acceptable 😐</item>
+        <item>Good 😌</item>
+        <item>Great 😁</item>
+        <item>Amazing 😍</item>
+    </string-array>
+</resources>

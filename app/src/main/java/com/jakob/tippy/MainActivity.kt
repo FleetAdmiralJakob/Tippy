@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
+import android.widget.AdapterView
 import android.widget.EditText
 import android.widget.SeekBar
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
@@ -21,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvTotalAmount: TextView
     private lateinit var tvTipDescription: TextView
     private lateinit var etPeopleAmount: EditText
+    private lateinit var serviceSpinner: Spinner
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,6 +38,7 @@ class MainActivity : AppCompatActivity() {
         tvTotalAmount = findViewById(R.id.tvTotalAmount)
         tvTipDescription = findViewById(R.id.tvTipDescription)
         etPeopleAmount = findViewById(R.id.etPeopleAmount)
+        serviceSpinner = findViewById(R.id.serviceSpinner)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
 
@@ -50,6 +55,16 @@ class MainActivity : AppCompatActivity() {
 
             override fun onStopTrackingTouch(seekBar: SeekBar?) {}
         })
+
+        serviceSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                updateSeekBarTip()
+                computeTipAndTotal()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
         etBaseAmount.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -59,6 +74,7 @@ class MainActivity : AppCompatActivity() {
                 computeTipAndTotal()
             }
         })
+
         etPeopleAmount.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
@@ -68,6 +84,18 @@ class MainActivity : AppCompatActivity() {
                 computeTipAndTotal()
             }
         })
+    }
+
+    private fun updateSeekBarTip() {
+        val tipPercent = when (serviceSpinner.selectedItemPosition) {
+            0 -> 5
+            1 -> 12
+            2 -> 17
+            3 -> 22
+            4 -> 27
+            else -> 0
+        }
+        seekBarTip.progress = tipPercent
     }
 
     private fun updateTipDescription(tipPercent: Int) {

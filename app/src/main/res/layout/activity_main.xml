@@ -56,7 +56,16 @@
         android:text="People"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintTop_toBottomOf="@+id/tvTotalLabel"
-        tools:layout_editor_absoluteX="14dp" />
+        tools:layout_editor_absoluteX="34dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Service"
+        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintTop_toBottomOf="@+id/tvPeopleLabel" />
 
     <!-- Views on the right side -->
     <EditText
@@ -147,5 +156,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvTotalAmount"
         app:layout_constraintStart_toEndOf="@+id/tvTotalAmount"
         app:layout_constraintTop_toTopOf="@+id/tvTotalAmount" />
+
+    <Spinner
+        android:id="@+id/serviceSpinner"
+        android:layout_width="244dp"
+        android:layout_height="24dp"
+        android:layout_marginStart="32dp"
+        android:entries="@array/services_array"
+        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
