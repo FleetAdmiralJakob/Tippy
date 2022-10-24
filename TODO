@@ -10,6 +10,8 @@ percent automatically.
 ● Added pre-defined options for service (e.g. poor, acceptable, good, excellent) which
 automatically decide the tip percentage. ✅
 
+● Add a country selector to update currency (and the language).
+
 ● (Advanced) Showed currency symbols and allow the user to change their currency. ✅
      ○ Store the currency in SharedPreferences
 

@@ -100,11 +100,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getCurrencyTypeFromSharedPreferences() {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     private fun saveCurrencyTypeForNextTime() {
-        TODO("Not yet implemented")
+        //TODO("Not yet implemented")
     }
 
     private fun updateCurrencyDescription() {
