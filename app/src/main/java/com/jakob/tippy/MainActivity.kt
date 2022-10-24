@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var serviceSpinner: Spinner
     private lateinit var currenciesSpinner: Spinner
     private lateinit var tvCurrency: TextView
+    private lateinit var countrySpinner: Spinner
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,12 +44,15 @@ class MainActivity : AppCompatActivity() {
         serviceSpinner = findViewById(R.id.serviceSpinner)
         currenciesSpinner = findViewById(R.id.currenciesSpinner)
         tvCurrency = findViewById(R.id.tvCurrency)
+        countrySpinner = findViewById(R.id.countrySpinner)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
 
         tvTipPercent.text = "$INITIAL_TIP_PERCENT%"
+
         updateTipDescription(INITIAL_TIP_PERCENT)
         getCurrencyTypeFromSharedPreferences()
+
         seekBarTip.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 tvTipPercent.text = "$progress%"
@@ -69,10 +73,19 @@ class MainActivity : AppCompatActivity() {
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+
         currenciesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 saveCurrencyTypeForNextTime()
                 updateCurrencyDescription()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+
+        countrySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                updateCurrencySpinner()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -99,6 +112,18 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    private fun updateCurrencySpinner() {
+        // Update selected item form the currency spinner based on the country spinner
+        val currency = when (countrySpinner.selectedItemPosition) {
+            0 -> 0
+            1 -> 0
+            2 -> 1
+            3 -> 2
+            else -> 0
+        }
+        currenciesSpinner.setSelection(currency)
+    }
+
     private fun getCurrencyTypeFromSharedPreferences() {
         //TODO("Not yet implemented")
     }
@@ -108,8 +133,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateCurrencyDescription() {
-        val currency = currenciesSpinner.selectedItem.toString()
-        tvCurrency.text = currency
+        val currency2 = currenciesSpinner.selectedItem.toString()
+        tvCurrency.text = currency2
     }
 
     private fun updateSeekBarTip() {

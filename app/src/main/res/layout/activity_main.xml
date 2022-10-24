@@ -69,6 +69,15 @@
         app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvPeopleLabel" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Country"
+        app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
     <!-- Views on the right side -->
     <EditText
         android:id="@+id/etBaseAmount"
@@ -169,8 +178,8 @@
 
     <Spinner
         android:id="@+id/currenciesSpinner"
-        android:layout_width="73dp"
-        android:layout_height="51dp"
+        android:layout_width="81dp"
+        android:layout_height="52dp"
         android:layout_marginStart="10dp"
         android:entries="@array/currencies_array"
         app:layout_constraintBottom_toBottomOf="@+id/etBaseAmount"
@@ -186,5 +195,15 @@
         app:layout_constraintStart_toEndOf="@+id/tvTotalAmount"
         app:layout_constraintTop_toTopOf="@+id/tvTotalAmount"
         tools:text="€" />
+
+    <Spinner
+        android:id="@+id/countrySpinner"
+        android:layout_width="175dp"
+        android:layout_height="27dp"
+        android:entries="@array/countries_array"
+        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/serviceSpinner"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
