@@ -2,7 +2,7 @@
 
 ● Improve the user interface through styling and coloring, e.g. change the text color, and font, and optimize the layout for different screens. See the styling screens FAQ.
 
-● Add the ability to split the bill across any number of people.
+● Added the ability to split the bill across any number of people. ✅
 
 ● Add the ability to round the total bill up or down, which should update the tip amount and
 percent automatically.
@@ -10,7 +10,7 @@ percent automatically.
 ● Added pre-defined options for service (e.g. poor, acceptable, good, excellent) which
 automatically decide the tip percentage. ✅
 
-● (Advanced) Show currency symbols and allow the user to change their currency.
+● (Advanced) Showed currency symbols and allow the user to change their currency. ✅
      ○ Store the currency in SharedPreferences
 
 ● (Advanced) Add another screen to the app where you can see tips made in the past.

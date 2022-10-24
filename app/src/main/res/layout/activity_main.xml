@@ -11,10 +11,12 @@
         android:id="@+id/tvBaseLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
         android:text="Base"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/tvPeopleLabel"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -70,8 +72,8 @@
     <!-- Views on the right side -->
     <EditText
         android:id="@+id/etBaseAmount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="190dp"
+        android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:ems="8"
         android:hint="Bill amount"
@@ -138,21 +140,20 @@
         android:id="@+id/etPeopleAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
         android:ems="2"
         android:inputType="numberSigned"
         android:text="1"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         app:layout_constraintBottom_toBottomOf="@+id/tvPeopleLabel"
-        app:layout_constraintStart_toEndOf="@+id/tvPeopleLabel"
+        app:layout_constraintStart_toStartOf="@+id/tvTotalAmount"
         app:layout_constraintTop_toTopOf="@+id/tvPeopleLabel" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:text="per Person"
+        android:layout_marginStart="30dp"
+        android:text="per person"
         app:layout_constraintBottom_toBottomOf="@+id/tvTotalAmount"
         app:layout_constraintStart_toEndOf="@+id/tvTotalAmount"
         app:layout_constraintTop_toTopOf="@+id/tvTotalAmount" />
@@ -161,10 +162,29 @@
         android:id="@+id/serviceSpinner"
         android:layout_width="244dp"
         android:layout_height="24dp"
-        android:layout_marginStart="32dp"
         android:entries="@array/services_array"
         app:layout_constraintBottom_toBottomOf="@+id/textView"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/etPeopleAmount"
         app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Spinner
+        android:id="@+id/currenciesSpinner"
+        android:layout_width="73dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="10dp"
+        android:entries="@array/currencies_array"
+        app:layout_constraintBottom_toBottomOf="@+id/etBaseAmount"
+        app:layout_constraintStart_toEndOf="@+id/etBaseAmount"
+        app:layout_constraintTop_toTopOf="@+id/etBaseAmount" />
+
+    <TextView
+        android:id="@+id/tvCurrency"
+        android:layout_width="14dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalAmount"
+        app:layout_constraintStart_toEndOf="@+id/tvTotalAmount"
+        app:layout_constraintTop_toTopOf="@+id/tvTotalAmount"
+        tools:text="€" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

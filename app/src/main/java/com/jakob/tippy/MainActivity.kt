@@ -25,8 +25,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvTipDescription: TextView
     private lateinit var etPeopleAmount: EditText
     private lateinit var serviceSpinner: Spinner
+    private lateinit var currenciesSpinner: Spinner
+    private lateinit var tvCurrency: TextView
 
-    @SuppressLint("SetTextI18n")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -39,11 +41,14 @@ class MainActivity : AppCompatActivity() {
         tvTipDescription = findViewById(R.id.tvTipDescription)
         etPeopleAmount = findViewById(R.id.etPeopleAmount)
         serviceSpinner = findViewById(R.id.serviceSpinner)
+        currenciesSpinner = findViewById(R.id.currenciesSpinner)
+        tvCurrency = findViewById(R.id.tvCurrency)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
 
         tvTipPercent.text = "$INITIAL_TIP_PERCENT%"
         updateTipDescription(INITIAL_TIP_PERCENT)
+        getCurrencyTypeFromSharedPreferences()
         seekBarTip.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 tvTipPercent.text = "$progress%"
@@ -60,6 +65,14 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 updateSeekBarTip()
                 computeTipAndTotal()
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        }
+        currenciesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                saveCurrencyTypeForNextTime()
+                updateCurrencyDescription()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -84,6 +97,15 @@ class MainActivity : AppCompatActivity() {
                 computeTipAndTotal()
             }
         })
+    }
+
+    private fun getCurrencyTypeFromSharedPreferences() {}
+
+    private fun saveCurrencyTypeForNextTime() {}
+
+    private fun updateCurrencyDescription() {
+        val currency = currenciesSpinner.selectedItem.toString()
+        tvCurrency.text = currency
     }
 
     private fun updateSeekBarTip() {
