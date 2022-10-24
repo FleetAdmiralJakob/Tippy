@@ -99,9 +99,13 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private fun getCurrencyTypeFromSharedPreferences() {}
+    private fun getCurrencyTypeFromSharedPreferences() {
+        TODO("Not yet implemented")
+    }
 
-    private fun saveCurrencyTypeForNextTime() {}
+    private fun saveCurrencyTypeForNextTime() {
+        TODO("Not yet implemented")
+    }
 
     private fun updateCurrencyDescription() {
         val currency = currenciesSpinner.selectedItem.toString()
