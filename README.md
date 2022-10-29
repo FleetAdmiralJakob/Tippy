@@ -1,7 +1,7 @@
 # Tippy
 A tip calculator (for Android)!
 
-![Tippy](Images/README%20Image%20v2.0.png)
+![Tippy](Images/README%20Image%20v2.1.png)
 
 ## License
 
