@@ -4,5 +4,8 @@
         <item>€</item>
         <item>$</item>
         <item>£</item>
+        <item>¥</item>
+        <item>zł</item>
+        <item>₽</item>
     </string-array>
 </resources>
