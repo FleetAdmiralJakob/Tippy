@@ -1,7 +1,13 @@
-# Tippy
+# Tippy - A Simple Tip Calculator
 A tip calculator (for Android)!
 
 ![Tippy](Images/README%20Image%20v2.1.png)
+
+Features:
+- Pure Kotlin
+- Single screen
+- No libraries
+- Language support
 
 ## License
 
