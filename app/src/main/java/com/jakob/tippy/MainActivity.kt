@@ -153,21 +153,48 @@ class MainActivity : AppCompatActivity() {
             }
             1 -> {
                 // EN Normal (Default Value)
+                tvBaseLabel.text = getString(R.string.base)
+                tvTipLabel.text = getString(R.string.tip)
+                tvTotalLabel.text = getString(R.string.total)
+                tvPeopleLabel.text = getString(R.string.people)
+                tvServiceLabel.text = getString(R.string.service)
+                tvCountryLabel.text = getString(R.string.country)
+                etBaseAmount.hint = getString(R.string.bill_amount)
+                tvFooter.text = getString(R.string.credit)
+                tvPerPerson.text = getString(R.string.per_person)
             }
             2 -> {
                 // EN Normal (Default Value)
+                tvBaseLabel.text = getString(R.string.base)
+                tvTipLabel.text = getString(R.string.tip)
+                tvTotalLabel.text = getString(R.string.total)
+                tvPeopleLabel.text = getString(R.string.people)
+                tvServiceLabel.text = getString(R.string.service)
+                tvCountryLabel.text = getString(R.string.country)
+                etBaseAmount.hint = getString(R.string.bill_amount)
+                tvFooter.text = getString(R.string.credit)
+                tvPerPerson.text = getString(R.string.per_person)
             }
             3 -> {
                 // EN Normal (Default Value)
+                tvBaseLabel.text = getString(R.string.base)
+                tvTipLabel.text = getString(R.string.tip)
+                tvTotalLabel.text = getString(R.string.total)
+                tvPeopleLabel.text = getString(R.string.people)
+                tvServiceLabel.text = getString(R.string.service)
+                tvCountryLabel.text = getString(R.string.country)
+                etBaseAmount.hint = getString(R.string.bill_amount)
+                tvFooter.text = getString(R.string.credit)
+                tvPerPerson.text = getString(R.string.per_person)
             }
             4 -> {
-                // EN Normal (Default Value)
+                // JP
             }
             5 -> {
-                // EN Normal (Default Value)
+                // PL
             }
             6 -> {
-                // EN Normal (Default Value)
+                // RU
             }
         }
     }
