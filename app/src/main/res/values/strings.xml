@@ -1,3 +1,30 @@
 <resources>
-    <string name="app_name">Tippy</string>
+    <string name="app_name" translatable="false">Tippy</string>
+
+    <string name="base">Base</string>
+    <string name="base_de">Rechnung</string>
+
+    <string name="tip">Tip</string>
+    <string name="tip_de">Trinkgeld</string>
+
+    <string name="total">Total</string>
+    <string name="total_de">Total</string>
+
+    <string name="people">People</string>
+    <string name="people_de">Personen</string>
+
+    <string name="service">Service</string>
+    <string name="service_de">Service</string>
+
+    <string name="country">Country</string>
+    <string name="country_de">Land</string>
+
+    <string name="bill_amount">Bill amount</string>
+    <string name="bill_amount_de">Rechnungsbetrag</string>
+
+    <string name="credit">Made with ️️❤️ by Jakob</string>
+    <string name="credit_de">Mit ❤ erstellt von Jakob</string>
+
+    <string name="per_person">per person</string>
+    <string name="per_person_de">pro Person</string>
 </resources>

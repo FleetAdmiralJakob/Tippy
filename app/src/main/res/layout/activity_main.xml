@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="48dp"
-        android:text="Base"
+        android:text="@string/base"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@+id/tvPeopleLabel"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="56dp"
-        android:text="Tip"
+        android:text="@string/tip"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipPercentLabel" />
@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Total"
+        android:text="@string/total"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTipLabel" />
@@ -55,28 +55,29 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="People"
+        android:text="@string/people"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        app:layout_constraintEnd_toEndOf="@id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvTotalLabel"
         tools:layout_editor_absoluteX="34dp" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvServiceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Service"
+        android:text="@string/service"
         app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
         app:layout_constraintTop_toBottomOf="@+id/tvPeopleLabel" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/tvCountryLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="Country"
+        android:text="@string/country"
         app:layout_constraintEnd_toEndOf="@+id/tvBaseLabel"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/tvServiceLabel" />
 
     <!-- Views on the right side -->
     <EditText
@@ -85,7 +86,7 @@
         android:layout_height="52dp"
         android:layout_marginStart="32dp"
         android:ems="8"
-        android:hint="Bill amount"
+        android:hint="@string/bill_amount"
         android:inputType="numberDecimal"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/tvBaseLabel"
@@ -127,7 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
         android:fontFamily="sans-serif-condensed-light"
-        android:text="Made with ️️❤️ by Jakob"
+        android:text="@string/credit"
         android:textAllCaps="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,11 +159,11 @@
         app:layout_constraintTop_toTopOf="@+id/tvPeopleLabel" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/tvPerPerson"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:text="per person"
+        android:text="@string/per_person"
         app:layout_constraintBottom_toBottomOf="@+id/tvTotalAmount"
         app:layout_constraintStart_toEndOf="@+id/tvTotalAmount"
         app:layout_constraintTop_toTopOf="@+id/tvTotalAmount" />
@@ -172,9 +173,9 @@
         android:layout_width="244dp"
         android:layout_height="24dp"
         android:entries="@array/services_array"
-        app:layout_constraintBottom_toBottomOf="@+id/textView"
+        app:layout_constraintBottom_toBottomOf="@+id/tvServiceLabel"
         app:layout_constraintStart_toStartOf="@+id/etPeopleAmount"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="@+id/tvServiceLabel" />
 
     <Spinner
         android:id="@+id/currenciesSpinner"
@@ -201,9 +202,9 @@
         android:layout_width="175dp"
         android:layout_height="27dp"
         android:entries="@array/countries_array"
-        app:layout_constraintBottom_toBottomOf="@+id/textView2"
+        app:layout_constraintBottom_toBottomOf="@+id/tvCountryLabel"
         app:layout_constraintStart_toStartOf="@+id/serviceSpinner"
-        app:layout_constraintTop_toTopOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="@+id/tvCountryLabel" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

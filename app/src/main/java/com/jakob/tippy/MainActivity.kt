@@ -14,9 +14,10 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 
-private const val TAG = "MainActivity"
 private const val INITIAL_TIP_PERCENT = 15
 class MainActivity : AppCompatActivity() {
+
+    // Main
     private lateinit var etBaseAmount: EditText
     private lateinit var seekBarTip: SeekBar
     private lateinit var tvTipPercent: TextView
@@ -29,11 +30,22 @@ class MainActivity : AppCompatActivity() {
     private lateinit var tvCurrency: TextView
     private lateinit var countrySpinner: Spinner
 
+    // For Translation
+    private lateinit var tvBaseLabel: TextView
+    private lateinit var tvTipLabel: TextView
+    private lateinit var tvTotalLabel: TextView
+    private lateinit var tvPeopleLabel: TextView
+    private lateinit var tvServiceLabel: TextView
+    private lateinit var tvCountryLabel: TextView
+    //private lateinit var etPeopleAmount: EditText
+    private lateinit var tvFooter: TextView
+    private lateinit var tvPerPerson: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Main
         etBaseAmount = findViewById(R.id.etBaseAmount)
         seekBarTip = findViewById(R.id.seekBarTip)
         tvTipPercent = findViewById(R.id.tvTipPercentLabel)
@@ -45,6 +57,17 @@ class MainActivity : AppCompatActivity() {
         currenciesSpinner = findViewById(R.id.currenciesSpinner)
         tvCurrency = findViewById(R.id.tvCurrency)
         countrySpinner = findViewById(R.id.countrySpinner)
+
+        // For Translation
+        tvBaseLabel = findViewById(R.id.tvBaseLabel)
+        tvTipLabel = findViewById(R.id.tvTipLabel)
+        tvTotalLabel = findViewById(R.id.tvTotalLabel)
+        tvPeopleLabel = findViewById(R.id.tvPeopleLabel)
+        tvServiceLabel = findViewById(R.id.tvServiceLabel)
+        tvCountryLabel = findViewById(R.id.tvCountryLabel)
+        //etPeopleAmount = findViewById(R.id.etPeopleAmount)
+        tvFooter = findViewById(R.id.tvFooter)
+        tvPerPerson = findViewById(R.id.tvPerPerson)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
 
@@ -86,6 +109,7 @@ class MainActivity : AppCompatActivity() {
         countrySpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 updateCurrencySpinner()
+                updateLanguage()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -110,6 +134,42 @@ class MainActivity : AppCompatActivity() {
                 computeTipAndTotal()
             }
         })
+    }
+
+    private fun updateLanguage() {
+        // Every string of a language is located in a own string.xml file so I call the right language based on the selected position of my country spinner.
+        when (countrySpinner.selectedItemPosition) {
+            0 -> {
+                // DE
+                tvBaseLabel.text = getString(R.string.base_de)
+                tvTipLabel.text = getString(R.string.tip_de)
+                tvTotalLabel.text = getString(R.string.total_de)
+                tvPeopleLabel.text = getString(R.string.people_de)
+                tvServiceLabel.text = getString(R.string.service_de)
+                tvCountryLabel.text = getString(R.string.country_de)
+                etBaseAmount.hint = getString(R.string.bill_amount_de)
+                tvFooter.text = getString(R.string.credit_de)
+                tvPerPerson.text = getString(R.string.per_person_de)
+            }
+            1 -> {
+                // EN Normal (Default Value)
+            }
+            2 -> {
+                // EN Normal (Default Value)
+            }
+            3 -> {
+                // EN Normal (Default Value)
+            }
+            4 -> {
+                // EN Normal (Default Value)
+            }
+            5 -> {
+                // EN Normal (Default Value)
+            }
+            6 -> {
+                // EN Normal (Default Value)
+            }
+        }
     }
 
     private fun updateCurrencySpinner() {
