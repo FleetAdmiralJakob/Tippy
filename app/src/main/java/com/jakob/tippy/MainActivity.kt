@@ -1,17 +1,19 @@
 package com.jakob.tippy
 
 import android.animation.ArgbEvaluator
-import android.annotation.SuppressLint
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.Spinner
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 private const val INITIAL_TIP_PERCENT = 15
@@ -29,6 +31,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var currenciesSpinner: Spinner
     private lateinit var tvCurrency: TextView
     private lateinit var countrySpinner: Spinner
+    private lateinit var ivGitHub: ImageView
 
     // For Translation
     private lateinit var tvBaseLabel: TextView
@@ -40,6 +43,7 @@ class MainActivity : AppCompatActivity() {
     //private lateinit var etPeopleAmount: EditText
     private lateinit var tvFooter: TextView
     private lateinit var tvPerPerson: TextView
+    private lateinit var tvGitHub: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -57,6 +61,7 @@ class MainActivity : AppCompatActivity() {
         currenciesSpinner = findViewById(R.id.currenciesSpinner)
         tvCurrency = findViewById(R.id.tvCurrency)
         countrySpinner = findViewById(R.id.countrySpinner)
+        ivGitHub = findViewById(R.id.ivGitHub)
 
         // For Translation
         tvBaseLabel = findViewById(R.id.tvBaseLabel)
@@ -68,6 +73,7 @@ class MainActivity : AppCompatActivity() {
         //etPeopleAmount = findViewById(R.id.etPeopleAmount)
         tvFooter = findViewById(R.id.tvFooter)
         tvPerPerson = findViewById(R.id.tvPerPerson)
+        tvGitHub = findViewById(R.id.tvGitHub)
 
         seekBarTip.progress = INITIAL_TIP_PERCENT
 
@@ -75,6 +81,12 @@ class MainActivity : AppCompatActivity() {
 
         updateTipDescription(INITIAL_TIP_PERCENT)
         getCurrencyTypeFromSharedPreferences()
+
+        ivGitHub.setOnClickListener(View.OnClickListener {
+            // This is the link to my GitHub
+            val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/FleetAdmiralJakob/Tippy"))
+            startActivity(browserIntent)
+        })
 
         seekBarTip.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
@@ -150,6 +162,7 @@ class MainActivity : AppCompatActivity() {
                 etBaseAmount.hint = getString(R.string.bill_amount_de)
                 tvFooter.text = getString(R.string.credit_de)
                 tvPerPerson.text = getString(R.string.per_person_de)
+                tvGitHub.text = getString(R.string.view_on_github_de)
             }
             1 -> {
                 // EN Normal (Default Value)
@@ -162,6 +175,7 @@ class MainActivity : AppCompatActivity() {
                 etBaseAmount.hint = getString(R.string.bill_amount)
                 tvFooter.text = getString(R.string.credit)
                 tvPerPerson.text = getString(R.string.per_person)
+                tvGitHub.text = getString(R.string.view_on_github)
             }
             2 -> {
                 // EN Normal (Default Value)
@@ -174,6 +188,7 @@ class MainActivity : AppCompatActivity() {
                 etBaseAmount.hint = getString(R.string.bill_amount)
                 tvFooter.text = getString(R.string.credit)
                 tvPerPerson.text = getString(R.string.per_person)
+                tvGitHub.text = getString(R.string.view_on_github)
             }
             3 -> {
                 // EN Normal (Default Value)
@@ -186,6 +201,7 @@ class MainActivity : AppCompatActivity() {
                 etBaseAmount.hint = getString(R.string.bill_amount)
                 tvFooter.text = getString(R.string.credit)
                 tvPerPerson.text = getString(R.string.per_person)
+                tvGitHub.text = getString(R.string.view_on_github)
             }
             4 -> {
                 // JP
