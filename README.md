@@ -33,14 +33,14 @@ Features:
 
 2. Go to the latest version 
 
-![2](Images\2.png)
+![2](Images/2.png)
 
 3. Download the .apk file
 
-![3](Images\3.png)
+![3](Images/3.png)
 
 4. Allow installation from unknown sources / Install unknown apps from chrome
 
-![4.1](Images\4.1.png)
+![4.1](Images/4.1.png)
 
-![4.2](Images\4.2.png)
+![4.2](Images/4.2.png)
