@@ -82,6 +82,10 @@ class MainActivity : AppCompatActivity() {
         updateTipDescription(INITIAL_TIP_PERCENT)
         getCurrencyTypeFromSharedPreferences()
 
+        etPeopleAmount.setText("1")
+
+        updateTvPerPerson()
+
         ivGitHub.setOnClickListener(View.OnClickListener {
             // This is the link to my GitHub
             val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/FleetAdmiralJakob/Tippy"))
@@ -138,14 +142,25 @@ class MainActivity : AppCompatActivity() {
         })
 
         etPeopleAmount.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
                 computeTipAndTotal()
+                // If the text equals 1, then tvperperson should display nothing
+                updateTvPerPerson()
             }
         })
+    }
+
+    private fun updateTvPerPerson() {
+        if (etPeopleAmount.text.toString() == "1") {
+            tvPerPerson.text = ""
+        } else {
+            updateLanguage()
+        }
     }
 
     private fun updateLanguage() {
@@ -213,6 +228,7 @@ class MainActivity : AppCompatActivity() {
                 // RU
             }
         }
+        updateTvPerPerson()
     }
 
     private fun updateCurrencySpinner() {
