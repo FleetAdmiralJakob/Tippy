@@ -82,8 +82,6 @@ class MainActivity : AppCompatActivity() {
         updateTipDescription(INITIAL_TIP_PERCENT)
         getCurrencyTypeFromSharedPreferences()
 
-        etPeopleAmount.setText("1")
-
         updateTvPerPerson()
 
         ivGitHub.setOnClickListener(View.OnClickListener {
@@ -159,7 +157,70 @@ class MainActivity : AppCompatActivity() {
         if (etPeopleAmount.text.toString() == "1") {
             tvPerPerson.text = ""
         } else {
-            updateLanguage()
+// Every string of a language is located in a own string.xml file so I call the right language based on the selected position of my country spinner.
+            when (countrySpinner.selectedItemPosition) {
+                0 -> {
+                    // DE
+                    tvBaseLabel.text = getString(R.string.base_de)
+                    tvTipLabel.text = getString(R.string.tip_de)
+                    tvTotalLabel.text = getString(R.string.total_de)
+                    tvPeopleLabel.text = getString(R.string.people_de)
+                    tvServiceLabel.text = getString(R.string.service_de)
+                    tvCountryLabel.text = getString(R.string.country_de)
+                    etBaseAmount.hint = getString(R.string.bill_amount_de)
+                    tvFooter.text = getString(R.string.credit_de)
+                    tvPerPerson.text = getString(R.string.per_person_de)
+                    tvGitHub.text = getString(R.string.view_on_github_de)
+                }
+                1 -> {
+                    // EN Normal (Default Value)
+                    tvBaseLabel.text = getString(R.string.base)
+                    tvTipLabel.text = getString(R.string.tip)
+                    tvTotalLabel.text = getString(R.string.total)
+                    tvPeopleLabel.text = getString(R.string.people)
+                    tvServiceLabel.text = getString(R.string.service)
+                    tvCountryLabel.text = getString(R.string.country)
+                    etBaseAmount.hint = getString(R.string.bill_amount)
+                    tvFooter.text = getString(R.string.credit)
+                    tvPerPerson.text = getString(R.string.per_person)
+                    tvGitHub.text = getString(R.string.view_on_github)
+                }
+                2 -> {
+                    // EN Normal (Default Value)
+                    tvBaseLabel.text = getString(R.string.base)
+                    tvTipLabel.text = getString(R.string.tip)
+                    tvTotalLabel.text = getString(R.string.total)
+                    tvPeopleLabel.text = getString(R.string.people)
+                    tvServiceLabel.text = getString(R.string.service)
+                    tvCountryLabel.text = getString(R.string.country)
+                    etBaseAmount.hint = getString(R.string.bill_amount)
+                    tvFooter.text = getString(R.string.credit)
+                    tvPerPerson.text = getString(R.string.per_person)
+                    tvGitHub.text = getString(R.string.view_on_github)
+                }
+                3 -> {
+                    // EN Normal (Default Value)
+                    tvBaseLabel.text = getString(R.string.base)
+                    tvTipLabel.text = getString(R.string.tip)
+                    tvTotalLabel.text = getString(R.string.total)
+                    tvPeopleLabel.text = getString(R.string.people)
+                    tvServiceLabel.text = getString(R.string.service)
+                    tvCountryLabel.text = getString(R.string.country)
+                    etBaseAmount.hint = getString(R.string.bill_amount)
+                    tvFooter.text = getString(R.string.credit)
+                    tvPerPerson.text = getString(R.string.per_person)
+                    tvGitHub.text = getString(R.string.view_on_github)
+                }
+                4 -> {
+                    // JP
+                }
+                5 -> {
+                    // PL
+                }
+                6 -> {
+                    // RU
+                }
+            }
         }
     }
 
@@ -228,7 +289,9 @@ class MainActivity : AppCompatActivity() {
                 // RU
             }
         }
-        updateTvPerPerson()
+        if (etPeopleAmount.text.toString() == "1") {
+            tvPerPerson.text = ""
+        }
     }
 
     private fun updateCurrencySpinner() {
