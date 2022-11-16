@@ -1,11 +1,14 @@
 package com.jakob.tippy
 
 import android.animation.ArgbEvaluator
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings.Global.putString
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.EditText
@@ -13,6 +16,7 @@ import android.widget.ImageView
 import android.widget.SeekBar
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
@@ -49,6 +53,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        getFromSharedPrefCountry()
+        getFromSharedPrefCurrency()
+        Toast.makeText(this, "Country & Currency loaded", Toast.LENGTH_SHORT).show()
+
         // Main
         etBaseAmount = findViewById(R.id.etBaseAmount)
         seekBarTip = findViewById(R.id.seekBarTip)
@@ -80,7 +88,6 @@ class MainActivity : AppCompatActivity() {
         tvTipPercent.text = "$INITIAL_TIP_PERCENT%"
 
         updateTipDescription(INITIAL_TIP_PERCENT)
-        getCurrencyTypeFromSharedPreferences()
 
         updateTvPerPerson()
 
@@ -113,8 +120,8 @@ class MainActivity : AppCompatActivity() {
 
         currenciesSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                saveCurrencyTypeForNextTime()
                 updateCurrencyDescription()
+                saveToSharedPrefCurrency()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -124,6 +131,7 @@ class MainActivity : AppCompatActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 updateCurrencySpinner()
                 updateLanguage()
+                saveToSharedPrefCountry()
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -151,6 +159,44 @@ class MainActivity : AppCompatActivity() {
                 updateTvPerPerson()
             }
         })
+    }
+
+    private fun saveToSharedPrefCurrency() {
+        val sharedPrefCur = getSharedPreferences("currency", Context.MODE_PRIVATE)
+        val sharedPrefEdiCur = sharedPrefCur.edit()
+        val currenciesSpinner: Spinner = findViewById(R.id.currenciesSpinner)
+
+        val position : Int = currenciesSpinner.selectedItemPosition
+        sharedPrefEdiCur.apply {
+            putInt("position currency", position)
+            apply()
+        }
+    }
+
+    private fun saveToSharedPrefCountry() {
+        val sharedPrefCou = getSharedPreferences("country", Context.MODE_PRIVATE)
+        val sharedPrefEdiCou = sharedPrefCou.edit()
+        val countrySpinner: Spinner = findViewById(R.id.countrySpinner)
+
+        val position : Int = countrySpinner.selectedItemPosition
+        sharedPrefEdiCou.apply {
+            putInt("position country", position)
+            apply()
+        }
+    }
+
+    private fun getFromSharedPrefCurrency() {
+        val currenciesSpinner: Spinner = findViewById(R.id.currenciesSpinner)
+        val sharedPrefCur = getSharedPreferences("currency", Context.MODE_PRIVATE)
+        val position : Int = sharedPrefCur.getInt("position currency", 0)
+        currenciesSpinner.setSelection(position)
+    }
+
+    private fun getFromSharedPrefCountry() {
+        val countrySpinner: Spinner = findViewById(R.id.countrySpinner)
+        val sharedPrefCou = getSharedPreferences("country", Context.MODE_PRIVATE)
+        val position : Int = sharedPrefCou.getInt("position country", 0)
+        countrySpinner.setSelection(position)
     }
 
     private fun updateTvPerPerson() {
@@ -307,14 +353,6 @@ class MainActivity : AppCompatActivity() {
             else -> 0
         }
         currenciesSpinner.setSelection(currency)
-    }
-
-    private fun getCurrencyTypeFromSharedPreferences() {
-        //TODO("Not yet implemented")
-    }
-
-    private fun saveCurrencyTypeForNextTime() {
-        //TODO("Not yet implemented")
     }
 
     private fun updateCurrencyDescription() {
