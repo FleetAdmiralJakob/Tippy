@@ -132,6 +132,9 @@ class MainActivity : AppCompatActivity() {
                 updateCurrencySpinner()
                 updateLanguage()
                 saveToSharedPrefCountry()
+                // Get variable progress
+                val progress = seekBarTip.progress
+                updateTipDescription(progress)
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {}
@@ -209,9 +212,9 @@ class MainActivity : AppCompatActivity() {
                     // DE
                     tvBaseLabel.text = getString(R.string.base_de)
                     tvTipLabel.text = getString(R.string.tip_de)
-                    tvTotalLabel.text = getString(R.string.total_de)
+                    tvTotalLabel.text = getString(R.string.total)
                     tvPeopleLabel.text = getString(R.string.people_de)
-                    tvServiceLabel.text = getString(R.string.service_de)
+                    tvServiceLabel.text = getString(R.string.service)
                     tvCountryLabel.text = getString(R.string.country_de)
                     etBaseAmount.hint = getString(R.string.bill_amount_de)
                     tvFooter.text = getString(R.string.credit_de)
@@ -219,17 +222,17 @@ class MainActivity : AppCompatActivity() {
                     tvGitHub.text = getString(R.string.view_on_github_de)
                 }
                 1 -> {
-                    // EN Normal (Default Value)
-                    tvBaseLabel.text = getString(R.string.base)
-                    tvTipLabel.text = getString(R.string.tip)
+                    // FR
+                    tvBaseLabel.text = getString(R.string.base_fr)
+                    tvTipLabel.text = getString(R.string.tip_fr)
                     tvTotalLabel.text = getString(R.string.total)
-                    tvPeopleLabel.text = getString(R.string.people)
+                    tvPeopleLabel.text = getString(R.string.people_fr)
                     tvServiceLabel.text = getString(R.string.service)
-                    tvCountryLabel.text = getString(R.string.country)
-                    etBaseAmount.hint = getString(R.string.bill_amount)
-                    tvFooter.text = getString(R.string.credit)
-                    tvPerPerson.text = getString(R.string.per_person)
-                    tvGitHub.text = getString(R.string.view_on_github)
+                    tvCountryLabel.text = getString(R.string.country_fr)
+                    etBaseAmount.hint = getString(R.string.bill_amount_fr)
+                    tvFooter.text = getString(R.string.credit_fr)
+                    tvPerPerson.text = getString(R.string.per_person_fr)
+                    tvGitHub.text = getString(R.string.view_on_github_fr)
                 }
                 2 -> {
                     // EN Normal (Default Value)
@@ -258,12 +261,27 @@ class MainActivity : AppCompatActivity() {
                     tvGitHub.text = getString(R.string.view_on_github)
                 }
                 4 -> {
-                    // JP
+                    // EN Normal (Default Value)
+                    tvBaseLabel.text = getString(R.string.base)
+                    tvTipLabel.text = getString(R.string.tip)
+                    tvTotalLabel.text = getString(R.string.total)
+                    tvPeopleLabel.text = getString(R.string.people)
+                    tvServiceLabel.text = getString(R.string.service)
+                    tvCountryLabel.text = getString(R.string.country)
+                    etBaseAmount.hint = getString(R.string.bill_amount)
+                    tvFooter.text = getString(R.string.credit)
+                    tvPerPerson.text = getString(R.string.per_person)
+                    tvGitHub.text = getString(R.string.view_on_github)
                 }
                 5 -> {
-                    // PL
+                    // JP
+                    tvBaseLabel.text = getString(R.string.base_jp)
+                    tvCountryLabel.text = getString(R.string.country_jp)
                 }
                 6 -> {
+                    // PL
+                }
+                7 -> {
                     // RU
                 }
             }
@@ -277,9 +295,9 @@ class MainActivity : AppCompatActivity() {
                 // DE
                 tvBaseLabel.text = getString(R.string.base_de)
                 tvTipLabel.text = getString(R.string.tip_de)
-                tvTotalLabel.text = getString(R.string.total_de)
+                tvTotalLabel.text = getString(R.string.total)
                 tvPeopleLabel.text = getString(R.string.people_de)
-                tvServiceLabel.text = getString(R.string.service_de)
+                tvServiceLabel.text = getString(R.string.service)
                 tvCountryLabel.text = getString(R.string.country_de)
                 etBaseAmount.hint = getString(R.string.bill_amount_de)
                 tvFooter.text = getString(R.string.credit_de)
@@ -287,17 +305,17 @@ class MainActivity : AppCompatActivity() {
                 tvGitHub.text = getString(R.string.view_on_github_de)
             }
             1 -> {
-                // EN Normal (Default Value)
-                tvBaseLabel.text = getString(R.string.base)
-                tvTipLabel.text = getString(R.string.tip)
+                // FR
+                tvBaseLabel.text = getString(R.string.base_fr)
+                tvTipLabel.text = getString(R.string.tip_fr)
                 tvTotalLabel.text = getString(R.string.total)
-                tvPeopleLabel.text = getString(R.string.people)
+                tvPeopleLabel.text = getString(R.string.people_fr)
                 tvServiceLabel.text = getString(R.string.service)
-                tvCountryLabel.text = getString(R.string.country)
-                etBaseAmount.hint = getString(R.string.bill_amount)
-                tvFooter.text = getString(R.string.credit)
-                tvPerPerson.text = getString(R.string.per_person)
-                tvGitHub.text = getString(R.string.view_on_github)
+                tvCountryLabel.text = getString(R.string.country_fr)
+                etBaseAmount.hint = getString(R.string.bill_amount_fr)
+                tvFooter.text = getString(R.string.credit_fr)
+                tvPerPerson.text = getString(R.string.per_person_fr)
+                tvGitHub.text = getString(R.string.view_on_github_fr)
             }
             2 -> {
                 // EN Normal (Default Value)
@@ -326,12 +344,27 @@ class MainActivity : AppCompatActivity() {
                 tvGitHub.text = getString(R.string.view_on_github)
             }
             4 -> {
-                // JP
+                // EN Normal (Default Value)
+                tvBaseLabel.text = getString(R.string.base)
+                tvTipLabel.text = getString(R.string.tip)
+                tvTotalLabel.text = getString(R.string.total)
+                tvPeopleLabel.text = getString(R.string.people)
+                tvServiceLabel.text = getString(R.string.service)
+                tvCountryLabel.text = getString(R.string.country)
+                etBaseAmount.hint = getString(R.string.bill_amount)
+                tvFooter.text = getString(R.string.credit)
+                tvPerPerson.text = getString(R.string.per_person)
+                tvGitHub.text = getString(R.string.view_on_github)
             }
             5 -> {
-                // PL
+                // JP
+                tvBaseLabel.text = getString(R.string.base_jp)
+                tvCountryLabel.text = getString(R.string.country_jp)
             }
             6 -> {
+                // PL
+            }
+            7 -> {
                 // RU
             }
         }
@@ -345,11 +378,12 @@ class MainActivity : AppCompatActivity() {
         val currency = when (countrySpinner.selectedItemPosition) {
             0 -> 0
             1 -> 0
-            2 -> 1
-            3 -> 2
-            4 -> 3
-            5 -> 4
-            6 -> 5
+            2 -> 0
+            3 -> 1
+            4 -> 2
+            5 -> 3
+            6 -> 4
+            7 -> 5
             else -> 0
         }
         currenciesSpinner.setSelection(currency)
@@ -374,11 +408,63 @@ class MainActivity : AppCompatActivity() {
 
     private fun updateTipDescription(tipPercent: Int) {
         val tipDescription = when (tipPercent) {
-            in 0..9 -> "Poor 😕"
-            in 10..14 -> "Acceptable 😐"
-            in 15..19 -> "Good 😌"
-            in 20..24 -> "Great 😁"
-            else -> "Amazing 😍"
+            in 0..9 -> {
+                when (countrySpinner.selectedItemPosition) {
+                    0 -> getString(R.string.poor_de)
+                    1 -> getString(R.string.poor_fr)
+                    2 -> getString(R.string.poor)
+                    3 -> getString(R.string.poor)
+                    4 -> getString(R.string.poor)
+                    5 -> getString(R.string.poor)
+                    6 -> getString(R.string.poor)
+                    7 -> getString(R.string.poor)
+                    else -> getString(R.string.poor)
+                }
+            }
+            in 10..14 -> when (countrySpinner.selectedItemPosition) {
+                0 -> getString(R.string.acceptable_de)
+                1 -> getString(R.string.acceptable_fr)
+                2 -> getString(R.string.acceptable)
+                3 -> getString(R.string.acceptable)
+                4 -> getString(R.string.acceptable)
+                5 -> getString(R.string.acceptable)
+                6 -> getString(R.string.acceptable)
+                7 -> getString(R.string.acceptable)
+                else -> getString(R.string.acceptable)
+            }
+            in 15..19 -> when (countrySpinner.selectedItemPosition) {
+                0 -> getString(R.string.good_de)
+                1 -> getString(R.string.good_fr)
+                2 -> getString(R.string.good)
+                3 -> getString(R.string.good)
+                4 -> getString(R.string.good)
+                5 -> getString(R.string.good)
+                6 -> getString(R.string.good)
+                7 -> getString(R.string.good)
+                else -> getString(R.string.good)
+            }
+            in 20..24 -> when (countrySpinner.selectedItemPosition) {
+                0 -> getString(R.string.great_de)
+                1 -> getString(R.string.great_fr)
+                2 -> getString(R.string.great)
+                3 -> getString(R.string.great)
+                4 -> getString(R.string.great)
+                5 -> getString(R.string.great)
+                6 -> getString(R.string.great)
+                7 -> getString(R.string.great)
+                else -> getString(R.string.great)
+            }
+            else -> when (countrySpinner.selectedItemPosition) {
+                0 -> getString(R.string.excellent_de)
+                1 -> getString(R.string.excellent_fr)
+                2 -> getString(R.string.excellent)
+                3 -> getString(R.string.excellent)
+                4 -> getString(R.string.excellent)
+                5 -> getString(R.string.excellent)
+                6 -> getString(R.string.excellent)
+                7 -> getString(R.string.excellent)
+                else -> getString(R.string.excellent)
+            }
         }
         tvTipDescription.text = tipDescription
         val color = ArgbEvaluator().evaluate(
